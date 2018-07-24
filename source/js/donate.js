@@ -47,10 +47,9 @@ jQuery(document).ready(function() {
 		if(QR) {
 			MainBox.css('background-image', 'url(' + QR + ')');
 		}
-		$('#DonateText,#donateBox,#github').addClass('blur');
-		QRBox.fadeIn(300, function(argument) {
-			MainBox.addClass('showQR');
-		});
+        MainBox.addClass('showQR');
+        QRBox.show()
+
 	}
 
 	$('#donateBox>li').click(function(event) {
@@ -65,14 +64,10 @@ jQuery(document).ready(function() {
 		}
 	});
 
+
 	MainBox.click(function(event) {
 		MainBox.removeClass('showQR').addClass('hideQR');
-		setTimeout(function(a) {
-			QRBox.fadeOut(300, function(argument) {
-				MainBox.removeClass('hideQR');
-			});
-			$('#DonateText,#donateBox,#github').removeClass('blur');
-		}, 600);
-
+        MainBox.removeClass('hideQR');
+        QRBox.hide()
 	});
 });
